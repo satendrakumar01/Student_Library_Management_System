@@ -1,6 +1,7 @@
 package com.example.Student_Library_Management_System.Services;
 
 
+import com.example.Student_Library_Management_System.DTOs.StudentUpdateMobRequestDto;
 import com.example.Student_Library_Management_System.Enums.CardStatus;
 import com.example.Student_Library_Management_System.Models.Card;
 import com.example.Student_Library_Management_System.Models.Student;
@@ -48,9 +49,34 @@ public class StudentService {
 
 
 
+    }
 
 
+
+    public String findNameByEmail(String email){
+
+        Student student = studentRepository.findByEmail(email);
+
+        return student.getName();
 
     }
 
+    public String updateMobNo(StudentUpdateMobRequestDto studentRequest){
+
+
+//        Convert the dto to the entity so that it can be saved better
+
+
+        Student originalStudent=studentRepository.findById(studentRequest.getId()).get();
+
+//        we will keep the other properties as it is: and only change the required parameters;
+
+        originalStudent.setMobNo(studentRequest.getMobNo());
+
+        studentRepository.save(originalStudent);
+
+
+
+        return "Updated student successfully";
+    }
 }
