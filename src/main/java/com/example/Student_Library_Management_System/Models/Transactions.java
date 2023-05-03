@@ -18,7 +18,7 @@ public class Transactions {
     @Enumerated(value = EnumType.STRING)
     private TransactionStatus transactionStatus;
     private int fine;
-    private String trasactionId= UUID.randomUUID().toString();
+    private String transactionId= UUID.randomUUID().toString();
     @CreationTimestamp
     private Date transactionDate;
 
@@ -63,12 +63,12 @@ public class Transactions {
         this.fine = fine;
     }
 
-    public String getTrasactionId() {
-        return trasactionId;
+    public String getTransactionId() {
+        return transactionId;
     }
 
-    public void setTrasactionId(String trasactionId) {
-        this.trasactionId = trasactionId;
+    public void setTransactionId(String trasactionId) {
+        this.transactionId = trasactionId;
     }
 
     public Date getTransactionDate() {
@@ -102,4 +102,6 @@ public class Transactions {
     public void setCard(Card card) {
         this.card = card;
     }
+
+
 }
